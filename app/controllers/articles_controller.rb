@@ -10,6 +10,15 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  def show_pdf
+    @article = Article.find(params[:id])
+    respond_to do |format|
+      format.pdf do
+        render pdf: "article#{@article.id}"
+      end
+    end
+  end
+
   def new
     @article = Article.new
   end
