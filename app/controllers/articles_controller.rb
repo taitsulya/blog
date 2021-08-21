@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ArticlesController < ApplicationController
   after_action :show_changes, only: %i[create update destroy]
   around_action :info
