@@ -59,8 +59,8 @@ class ArticlesController < ApplicationController
   private
 
   def show_changes
-    puts 'Article: '
-    @article.attributes.each { |key, value| puts "  #{key}: #{value}" }
+    Rails.logger.debug 'Article: '
+    @article.attributes.each { |key, value| Rails.logger.debug "  #{key}: #{value}" }
   end
 
   def info
@@ -70,16 +70,15 @@ class ArticlesController < ApplicationController
   end
 
   def before
-    before = "BEFORE ACTION\n"
-    before << "Request method: #{request.method}\nIP: #{request.ip}\nPath: #{request.path}\nRequest parameters:\n"
-    request.params.each { |key, value| before << "  #{key}: #{value}\n" }
-    puts before
+    Rails.logger.debug do
+      "BEFORE ACTION\nRequest method: #{request.method}\nIP: #{request.ip}\nPath: #{request.path}\nRequest parameters:"
+    end
+    request.params.each { |key, value| Rails.logger.debug "  #{key}: #{value}" }
   end
 
   def after
-    after = "AFTER ACTION\n"
-    after << "Response status: #{response.status} #{response.message}"
-    puts after
+    Rails.logger.debug 'AFTER ACTION'
+    Rails.logger.debug { "Response status: #{response.status} #{response.message}" }
   end
 
   def article_params
