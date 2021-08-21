@@ -59,6 +59,8 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'rubocop', require: false
 
+gem 'rubocop-rails', require: false
+
 gem 'pry', '~> 0.13.1'
 
 gem 'wicked_pdf'
