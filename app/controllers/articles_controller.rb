@@ -4,6 +4,8 @@ class ArticlesController < ApplicationController
   after_action :show_changes, only: %i[create update destroy]
   around_action :info
 
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
   def index
     @articles = Article.all
   end
@@ -83,5 +85,13 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :body)
+  end
+
+  def record_not_found
+    respond_to do |format|
+      format.html { render plain: 'User not found', status: :not_found }
+      format.pdf { render pdf: 'error', template: 'articles/error.pdf.erb', status: :not_found }
+      format.xml { render :error, status: :not_found }
+    end
   end
 end
