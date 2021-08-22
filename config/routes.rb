@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   resources :articles
   get 'articles/:id/pdf', to: 'articles#show_pdf', defaults: { format: 'pdf' }
+  get 'articles/:id/xml', to: 'articles#show_xml', defaults: { format: 'xml' }
 end
