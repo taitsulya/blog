@@ -2,7 +2,7 @@ AllCops:
   Exclude:
     - db/schema.rb
   NewCops: enable
-  TargetRubyVersion: '2.7.4'
+  TargetRubyVersion: '3.0.0'
 
 Style/Documentation:
   Enabled: false
