@@ -7,4 +7,7 @@ AllCops:
 Style/Documentation:
   Enabled: false
 
+Metrics/MethodLength:
+  Enabled: false
+
 require: rubocop-rails

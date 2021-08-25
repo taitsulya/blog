@@ -31,10 +31,13 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article }
+        format.html { redirect_to @article, notice: 'Article successfully created' }
         format.json { render :show, status: :created, location: @article }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html do
+          flash.now[:alert] = 'Incorrect article'
+          render :new, status: :unprocessable_entity
+        end
         format.json { render json: @article.errors, status: :unprocessable_entity }
       end
     end
