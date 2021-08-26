@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ArticlesController < ApplicationController
+  before_action :set_format, only: :show_format
   after_action :show_changes, only: %i[create update destroy]
   around_action :info
 
@@ -14,13 +15,12 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
-  def show_pdf
+  def show_format
     @article = Article.find(params[:id])
-    render pdf: "article#{@article.id}"
-  end
-
-  def show_xml
-    @article = Article.find(params[:id])
+    respond_to do |format|
+      format.pdf { render pdf: "article#{@article.id}" }
+      format.xml
+    end
   end
 
   def new
@@ -71,6 +71,10 @@ class ArticlesController < ApplicationController
 
   private
 
+  def set_format
+    request.format = params[:page_format]
+  end
+
   def show_changes
     Rails.logger.debug 'Article: '
     @article.attributes.each { |key, value| Rails.logger.debug "  #{key}: #{value}" }
@@ -100,8 +104,8 @@ class ArticlesController < ApplicationController
 
   def record_not_found
     respond_to do |format|
-      format.html { render plain: 'User not found', status: :not_found }
-      format.pdf { render html: 'User not found. Unable to create pdf', status: :not_found }
+      format.html { render :error, status: :not_found }
+      format.pdf { render :error_pdf, formats: :html, content_type: 'text/html', status: :not_found }
       format.xml { render :error, status: :not_found }
       format.json { render json: { error: 'not-found' }.to_json, status: :not_found }
     end
