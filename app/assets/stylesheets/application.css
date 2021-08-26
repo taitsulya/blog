@@ -25,3 +25,12 @@ hr {
     max-width: 100px;
     margin-left: 0;
 }
+
+.box {
+    display: inline-block;
+    padding: 5px;
+}
+
+.box:hover {
+    border: #666666 1px solid;
+}
