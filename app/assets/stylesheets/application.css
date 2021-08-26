@@ -20,3 +20,8 @@
 .notice {
     color: green;
 }
+
+hr {
+    max-width: 100px;
+    margin-left: 0;
+}

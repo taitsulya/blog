@@ -1,7 +1,7 @@
 <h1>Articles</h1>
 
 <ul>
-  <%= render @articles %>
+  <%= render partial: @articles, spacer_template: 'horizontal_line_separator' %>
 </ul>
 
 <%= link_to "New Article", new_article_path %>
