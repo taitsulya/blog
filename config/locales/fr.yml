@@ -1,0 +1,12 @@
+fr:
+  homepage: "Page d'accueil"
+  article_not_found: "Article introuvable"
+  article_not_found_pdf: "Article introuvable. Impossible de créer le pdf"
+  edit: "Éditer"
+  edit_article: "Modifier l'article"
+  destroy: "Détruire"
+  new_article: "Nouvel article"
+  articles: "Des articles"
+  title: "Titre"
+  body: "Corps"
+  create_article: "Créer un article"

@@ -66,3 +66,5 @@ gem 'pry', '~> 0.13.1'
 gem 'wicked_pdf'
 
 gem 'wkhtmltopdf-binary'
+
+gem 'rails-i18n'

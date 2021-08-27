@@ -31,3 +31,14 @@
 
 en:
   hello: "Hello world"
+  homepage: "Homepage"
+  article_not_found: "Article not found"
+  article_not_found_pdf: "Article not found. Unable to create pdf"
+  edit: "Edit"
+  edit_article: "Edit article"
+  destroy: "Destroy"
+  new_article: "New Article"
+  articles: "Articles"
+  title: "Title"
+  body: "Body"
+  create_article: "Create article"

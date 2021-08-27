@@ -11,6 +11,17 @@
   </head>
 
   <body>
+    <nav>
+      <ul>
+        <li><%= link_to t('homepage'), root_path %></li>
+      </ul>
+      <ul>
+        <li><%= link_to 'English', locale: :en %></li>
+        <li><%= link_to 'Русский', locale: :ru %></li>
+        <li><%= link_to 'Française', locale: :fr %></li>
+      </ul>
+    </nav>
+
     <%= render 'shared/flash_message' %>
     <%= yield %>
   </body>

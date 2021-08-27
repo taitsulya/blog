@@ -1,0 +1,12 @@
+ru:
+  homepage: "Домашняя страница"
+  article_not_found: "Статья не найдена"
+  article_not_found_pdf: "Статья не найдена. Невозмонжо создать pdf"
+  edit: "Редактировать"
+  edit_article: "Редактировать статью<"
+  destroy: "Удалить"
+  new_article: "Новая статья"
+  articles: "Статьи"
+  title: "Название"
+  body: "Текст"
+  create_article: "Создать статью"
