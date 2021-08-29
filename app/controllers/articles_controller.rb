@@ -2,7 +2,6 @@
 
 class ArticlesController < ApplicationController
   before_action :set_format, only: :show_format
-  before_action :set_locale
   after_action :show_changes, only: %i[create update destroy]
   around_action :info
 
@@ -71,11 +70,6 @@ class ArticlesController < ApplicationController
   end
 
   private
-
-  def set_locale
-    locale = I18n.available_locales.map(&:to_s).include?(params[:locale]) ? params[:locale] : nil
-    I18n.locale = locale || I18n.default_locale
-  end
 
   def set_format
     request.format = params[:page_format]
